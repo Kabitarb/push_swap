@@ -31,7 +31,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(AR) $(NAME) $(OBJ)
 	
-.o:.c
+%.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:

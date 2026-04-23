@@ -1,31 +1,29 @@
 #include "push_swap.h"
 
-int count(t_node *a)
+int length(t_node *stack)
 {
-    int size;
-    t_node *head;
-    int flag;
+    int count;
+    t_node *current;
 
-    if (!a)
-        return (0);
+    if(!stack)
+        return(0);
 
-    flag = 1;
-    head = a;
-    size = 0;
-    while(head != a || flag)
+    count = 1;
+    current = stack->next;
+
+    while(current != stack)
     {
-        flag = 0;
-        size++;
-        head = head->next;
+        count++;
+        current = current->next;
     }
-    return (size);
+    return (count);
 }
 
 void pushto_b(t_node **a, t_node **b)
 {
     int size;
 
-    size = count(*a);
+    size = length(*a);
     while(size > 3)
     {
         pb(a, b);
@@ -33,7 +31,7 @@ void pushto_b(t_node **a, t_node **b)
     }
 }
 
-static t_node *min(t_node *a)
+t_node *min(t_node *a)
 {
     t_node *mini;
     t_node *current;

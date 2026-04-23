@@ -2,7 +2,6 @@
 # define PUSH_SWAP_H
 
 #include "libft/libft.h"
-#include <stdio.h>
 #include <unistd.h>
 #include <limits.h>
 
@@ -11,8 +10,8 @@ typedef struct s_node
     int data;
     int pos;
     int cost;
-    int med;
-    int targetpos;
+    int above_med;
+    int target_pos;
     struct s_node *target;
     struct s_node *prev;
     struct s_node *next;
@@ -38,7 +37,17 @@ void ra(t_node **a);
 void rb(t_node **b);
 void rr(t_node **a, t_node **b);
 void three_sort(t_node **head);
-int count(t_node *a);
+int length(t_node *stack);
+t_node *min(t_node *a);
 void pushto_b(t_node **a, t_node **b);
+t_node *smallest_bigger(t_node *a, t_node *b);
+void get_cost(t_node *a, t_node *b);
+t_node *find_cheapest(t_node *b);
+void set_position(t_node *stack);
+void find_target(t_node*a, t_node *b);
+void rotate_both(t_node **a, t_node **b, t_node *cheapest);
+void rev_rotate_both(t_node **a, t_node **b, t_node *cheapest);
+void rotate_diff(t_node **a, t_node **b, t_node *cheapest);
+void push_swap(t_node **a, t_node **b);
 
 #endif
